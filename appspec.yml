@@ -1,4 +1,3 @@
-﻿
 # This is an appspec.yml template file for use with AWS CodeDeploy.
 # The lines in this template starting with the hashtag symbol are 
 #   instructional comments and can be safely left in the file or 
@@ -55,11 +54,11 @@ permissions:
 hooks:
   ApplicationStop:
     - location: scripts/applicationStop.sh
-      timeout: 15
+      timeout: 30
       runas: ec2-user
   BeforeInstall:
     - location: scripts/beforeInstall.sh
-      timeout: 15
+      timeout: 30
       runas:  root
   AfterInstall:
     - location: scripts/afterInstall.sh
@@ -67,9 +66,9 @@ hooks:
       runas: ec2-user
   ApplicationStart:
     - location: scripts/applicationStart.sh   
-      timeout: 15
+      timeout: 30
       runas: ec2-user
   ValidateService:
     - location: scripts/validateService.sh   
-      timeout: 15
+      timeout: 30
       runas: ec2-user     
